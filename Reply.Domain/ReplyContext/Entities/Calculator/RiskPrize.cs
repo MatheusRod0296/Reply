@@ -1,10 +1,18 @@
 ﻿namespace Reply.Domain.ReplyContext.Entities.Calculator
 {
+    /// <summary>
+    /// Calculator class responsabile
+    /// for calculate RiskPrize
+    /// </summary>
     public class RiskPrize : ICalculator
     {
         private decimal _riskrate;
-        private decimal _veichleValue;
-
+        private decimal _veichleValue;        
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="riskrate">valor da taxa de risco</param>
+        /// <param name="veichleValue">valor do veiculo</param>
         public RiskPrize(decimal riskrate, decimal veichleValue)
         {
             _riskrate = riskrate;

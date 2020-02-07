@@ -3,6 +3,10 @@ using Reply.Shared.Entities;
 
 namespace Reply.Domain.ReplyContext.Entities
 {
+    /// <summary>
+    /// Main class of context.
+    /// Stored all values about a insurance
+    /// </summary>
     public class Insurance : Entity
     {
         const decimal margemSegurity = 0.03M;
@@ -25,6 +29,8 @@ namespace Reply.Domain.ReplyContext.Entities
         public ICalculator RiskPrize { get => new RiskPrize(RiskRate.Value, Vehicle.Value); }
         public ICalculator PurePrize { get => new PurePrize(RiskPrize.Value, margemSegurity); }
         public ICalculator CommercialPrize { get => new CommercialPrize(PurePrize.Value, profit); }
+
+  
 
     }
 

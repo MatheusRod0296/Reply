@@ -5,15 +5,16 @@ using System.Globalization;
 
 namespace Reply.Domain.ReplyContext.Entities
 {
+    /// <summary>
+    /// Class is responsible for Storing  and Valid the values of a vehicle  
+    /// </summary>
     public class Vehicle : Entity
     {
-        public Vehicle(string brand, string model, decimal value)
+        public Vehicle(string brand, string model, string value)
         {
             Brand = brand;
             Model = model;
             Value = RoundValue(value);
-
-          
 
             AddNotifications(new ValidationContract()
                 .Requires()
@@ -26,8 +27,6 @@ namespace Reply.Domain.ReplyContext.Entities
              
                );
 
-
-
         }
 
         public string Brand { get; private set; }
@@ -37,9 +36,17 @@ namespace Reply.Domain.ReplyContext.Entities
         public decimal Value { get; private set; }
 
        
-
-        private  decimal RoundValue(decimal value )
+        /// <summary>
+        /// metodo tranforma o valor em decimal 
+        /// e arredonda o valor deixando com duas casas decimais
+        /// </summary>
+        /// <param name="inputValue"></param>
+        /// <returns></returns>
+        private  decimal RoundValue(string inputValue )
         {
+          
+            decimal.TryParse(inputValue, out decimal value);
+
             value = Math.Round(value, 2);
 
           return value;

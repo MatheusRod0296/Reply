@@ -3,6 +3,12 @@ using FluentValidator.Validation;
 
 namespace Reply.Domain.ReplyContext.ValueObjects
 {
+    /// <summary>
+    /// Classe contempla Um Nome completo
+    /// armazena e verifica se os  nome e
+    /// sobre nome são validos de acordo com a regra passa 
+    /// no construtor
+    /// </summary>
     public class Name: Notifiable
     {
         public Name(string firstName, string lastName)

@@ -3,6 +3,9 @@ using Reply.Shared.Entities;
 
 namespace Reply.Domain.ReplyContext.ValueObjects
 {
+    /// <summary>
+    /// Class storage Cpf value.
+    /// </summary>
     public class Document: Entity
     {
         public Document(string number)
@@ -17,11 +20,13 @@ namespace Reply.Domain.ReplyContext.ValueObjects
 
         public string Number { get; private set; }
 
-        public override string ToString()
-        {
-            return Number;
-        }
 
+        /// <summary>
+        /// metodo responsible for validate CPF value
+        /// algorithm meet on  http://www.macoratti.net/alg_cpf.htm
+        /// </summary>
+        /// <param name="cpf">number matching a CPF</param>
+        /// <returns></returns>
         public bool Validate(string cpf)
         {
             int[] multiplicador1 = new int[9] { 10, 9, 8, 7, 6, 5, 4, 3, 2 };
@@ -56,6 +61,11 @@ namespace Reply.Domain.ReplyContext.ValueObjects
                 resto = 11 - resto;
             digito = digito + resto.ToString();
             return cpf.EndsWith(digito);
+        }
+
+        public override string ToString()
+        {
+            return Number;
         }
     }
 }

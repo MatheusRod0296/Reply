@@ -12,7 +12,7 @@ namespace Reply.Tests.Entities
         [TestMethod]
         public void ShouldReturnNotificationWhenMinimalItensIsNotValid()
         {
-            var vehicle = new Vehicle("ab", "ab", 0);          
+            var vehicle = new Vehicle("ab", "ab", "0");          
 
             Assert.AreEqual(true, vehicle.Invalid);
             Assert.AreEqual(3, vehicle.Notifications.Count);
@@ -24,7 +24,7 @@ namespace Reply.Tests.Entities
          
             var vehicle = new Vehicle("qwertyuiopqwertyuiopqwertyuiopqwertyuiopqwertyqwertyuiopqwertyuiopqwertyuiopqwertyuiopqwertyuiopuiop",
                 "qwertyuiopqwqwertyuiopqwertyuiopqwertyuiopqwertyuiopqwertyuiopertyuiopqwertyuiopqwertyuiopqwertyuiop",
-                99999999999999999.99M);         
+                "99999999999999999.99M");         
 
             Assert.AreEqual(true, vehicle.Invalid);
             Assert.AreEqual(3, vehicle.Notifications.Count);
@@ -34,7 +34,7 @@ namespace Reply.Tests.Entities
         public void ShouldReturnNotificationWhenValid()
         {
 
-            var vehicle = new Vehicle("Gurgel", "Ipanema", 5000.00M);
+            var vehicle = new Vehicle("Gurgel", "Ipanema", "5000.00M");
 
             Assert.AreEqual(true, vehicle.Valid);
             Assert.AreEqual(0, vehicle.Notifications.Count);

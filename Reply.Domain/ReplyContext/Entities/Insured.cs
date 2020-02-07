@@ -4,6 +4,10 @@ using Reply.Shared.Entities;
 
 namespace Reply.Domain.ReplyContext.Entities
 {
+    /// <summary>
+    /// class responsible for storing the values of a insurance
+    /// and validate about your business    
+    /// </summary>
     public class Insured : Entity
     {
         public Insured(int age, Name name, Document document)
@@ -14,7 +18,7 @@ namespace Reply.Domain.ReplyContext.Entities
 
             AddNotifications(new ValidationContract()
             .Requires()
-            .IsBetween(Age, 18, 100, nameof(Age), "A idade deve  estar entre 18 e 100 anos!")
+            .IsBetween(Age, 17, 121, nameof(Age), "A idade deve  estar entre 18 e 120 anos!")
             );
 
             AddNotifications(Name, Document);

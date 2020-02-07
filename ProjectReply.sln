@@ -11,6 +11,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Reply.Shared", "Reply.Share
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Reply.Tests", "Reply.Tests\Reply.Tests.csproj", "{CBB7C386-5071-4F08-80D4-BC6CF4FBE2E3}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Reply.Infra", "Reply.Infra\Reply.Infra.csproj", "{4453E422-83F1-4AAE-A7CD-1A147257CBE1}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -69,6 +71,18 @@ Global
 		{CBB7C386-5071-4F08-80D4-BC6CF4FBE2E3}.Release|x64.Build.0 = Release|Any CPU
 		{CBB7C386-5071-4F08-80D4-BC6CF4FBE2E3}.Release|x86.ActiveCfg = Release|Any CPU
 		{CBB7C386-5071-4F08-80D4-BC6CF4FBE2E3}.Release|x86.Build.0 = Release|Any CPU
+		{4453E422-83F1-4AAE-A7CD-1A147257CBE1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4453E422-83F1-4AAE-A7CD-1A147257CBE1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4453E422-83F1-4AAE-A7CD-1A147257CBE1}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{4453E422-83F1-4AAE-A7CD-1A147257CBE1}.Debug|x64.Build.0 = Debug|Any CPU
+		{4453E422-83F1-4AAE-A7CD-1A147257CBE1}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{4453E422-83F1-4AAE-A7CD-1A147257CBE1}.Debug|x86.Build.0 = Debug|Any CPU
+		{4453E422-83F1-4AAE-A7CD-1A147257CBE1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4453E422-83F1-4AAE-A7CD-1A147257CBE1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4453E422-83F1-4AAE-A7CD-1A147257CBE1}.Release|x64.ActiveCfg = Release|Any CPU
+		{4453E422-83F1-4AAE-A7CD-1A147257CBE1}.Release|x64.Build.0 = Release|Any CPU
+		{4453E422-83F1-4AAE-A7CD-1A147257CBE1}.Release|x86.ActiveCfg = Release|Any CPU
+		{4453E422-83F1-4AAE-A7CD-1A147257CBE1}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
