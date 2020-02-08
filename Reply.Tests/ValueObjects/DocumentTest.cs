@@ -10,22 +10,22 @@ namespace Reply.Tests.ValueObjects
     public class DocumentTest
     {
         [TestMethod]
-        public void ShouldReturnNotificationWhenDocumentIsNotValid()
+        [DataRow("944.545.650-00")]
+        [DataRow("000.000.000-11")]
+        public void ShouldReturnNotificationWhenDocumentIsNotValid(string cpf)
         {
-            var document = new Document("12345678911");            
-
-            Assert.AreEqual(true, document.Invalid);
-            Assert.IsTrue( document.Notifications.Count > 0);
+            var document = new Document(cpf);            
+            Assert.IsTrue(document.Invalid);
         }
 
 
         [TestMethod]
-        public void ShouldReturnNotificationWhenDocumentIsValid()
+        [DataRow("944.555.650-00")]
+        [DataRow("000.000.001-91")]
+        public void ShouldReturnNotificationWhenDocumentIsValid(string cpf)
         {
-            var document = new Document("944.555.650-00");
-
-            Assert.AreEqual(true, document.Valid);
-            Assert.AreEqual( 0, document.Notifications.Count);
+            var document = new Document(cpf);
+            Assert.IsTrue(document.Valid);
         }
     }
 }
