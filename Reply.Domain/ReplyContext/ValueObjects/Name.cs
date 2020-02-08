@@ -17,10 +17,10 @@ namespace Reply.Domain.ReplyContext.ValueObjects
             LastName = lastName;
 
             AddNotifications(new ValidationContract().Requires()
-           .HasMinLen(FirstName, 3, nameof(FirstName), "O nome deve  conter pelo menos 3 caracteres")
-           .HasMaxLen(FirstName, 40, nameof(FirstName), "O nome deve  conter menos de 40 caracteres")
-           .HasMinLen(LastName, 3, nameof(LastName), "O sobrenome deve  conter pelo menso 3 caracteres")
-           .HasMaxLen(LastName, 40, nameof(LastName), "O sobrenome deve  conter menos de 40 caracteres")
+                .HasMinLen(FirstName, 3, nameof(FirstName), "O nome deve  conter pelo menos 3 caracteres")
+                .HasMaxLen(FirstName, 40, nameof(FirstName), "O nome deve  conter menos de 40 caracteres")
+                .HasMinLen(LastName, 3, nameof(LastName), "O sobrenome deve  conter pelo menso 3 caracteres")
+                .HasMaxLen(LastName, 40, nameof(LastName), "O sobrenome deve  conter menos de 40 caracteres")
            );
 
         }

@@ -1,12 +1,10 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Reply.Domain.ReplyContext.Entities;
 using Reply.Domain.ReplyContext.ValueObjects;
-using System;
-using System.Collections.Generic;
-using System.Text;
 
 namespace Reply.Tests.Entities
 {
+    //TODO: Receber os parametros via metodos para testar mais possibilidade
     [TestClass]
     public class InsuredTest
     {
@@ -15,33 +13,24 @@ namespace Reply.Tests.Entities
 
         [TestMethod]
         public void ShouldReturnNotificationWhenAgeIsUnderthan18()
-        {
-            
+        {            
             var insured = new Insured(17, _name, _document);
-
             Assert.AreEqual(true, insured.Invalid);
-            Assert.AreEqual(1, insured.Notifications.Count);
         }
 
 
         [TestMethod]
         public void ShouldReturnNotificationWhenAgeIsOverthan120()
         {
-
             var insured = new Insured(121, _name, _document);
-
             Assert.AreEqual(true, insured.Invalid);
-            Assert.AreEqual(1, insured.Notifications.Count);
         }
 
         [TestMethod]
         public void ShouldReturnNotificationWhenIsValid()
         {        
-
             var insured = new Insured(18, _name, _document);
-
             Assert.AreEqual(true, insured.Valid);
-            Assert.AreEqual(0, insured.Notifications.Count);
         }
     }
 }

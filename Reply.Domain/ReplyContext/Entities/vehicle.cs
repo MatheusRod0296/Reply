@@ -10,11 +10,11 @@ namespace Reply.Domain.ReplyContext.Entities
     /// </summary>
     public class Vehicle : Entity
     {
-        public Vehicle(string brand, string model, string value)
+        public Vehicle(string brand, string model, decimal value)
         {
             Brand = brand;
             Model = model;
-            Value = RoundValue(value);
+            Value = value;
 
             AddNotifications(new ValidationContract()
                 .Requires()
@@ -23,9 +23,7 @@ namespace Reply.Domain.ReplyContext.Entities
                .HasMaxLen(Brand, 50, nameof(Brand), "A marca do veiculo deve conter menos de 50 caracteres!")
                .HasMaxLen(Model, 50, nameof(Model), "O modelo do veiculo deve conter menos de 50 caracteres!")           
                .IsGreaterThan(Value, 0, nameof(Value), "O Valor do veiculo não pode ser menor igual a Zero!")
-               .IsFalse((Value > 9999999999999999.99M),  nameof(Value), "O Valor do veiculo execeu o range!")
-             
-               );
+               .IsFalse((Value > 9999999999999999.99M),  nameof(Value), "O Valor do veiculo execeu o range!"));
 
         }
 
@@ -33,24 +31,6 @@ namespace Reply.Domain.ReplyContext.Entities
 
         public string Model { get; private set; }
 
-        public decimal Value { get; private set; }
-
-       
-        /// <summary>
-        /// metodo tranforma o valor em decimal 
-        /// e arredonda o valor deixando com duas casas decimais
-        /// </summary>
-        /// <param name="inputValue"></param>
-        /// <returns></returns>
-        private  decimal RoundValue(string inputValue )
-        {
-          
-            decimal.TryParse(inputValue, out decimal value);
-
-            value = Math.Round(value, 2);
-
-          return value;
-        }
-       
+        public decimal Value { get; private set; }       
     }
 }

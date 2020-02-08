@@ -6,7 +6,7 @@ namespace Reply.Domain.ReplyContext.ValueObjects
     /// <summary>
     /// Class storage Cpf value.
     /// </summary>
-    public class Document: Entity
+    public class Document : Entity
     {
         public Document(string number)
         {
@@ -21,6 +21,9 @@ namespace Reply.Domain.ReplyContext.ValueObjects
         public string Number { get; private set; }
 
 
+        //TODO: COLOCAR O METÓDO DENTRO DE SHARED COMO VALIDAÇÃO E CHAMAR AQUI
+
+        
         /// <summary>
         /// metodo responsible for validate CPF value
         /// algorithm meet on  http://www.macoratti.net/alg_cpf.htm

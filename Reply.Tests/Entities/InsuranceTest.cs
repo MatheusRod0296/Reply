@@ -19,7 +19,7 @@ namespace Reply.Tests.Entities
             var document = new Document("944.555.650-00");
             var insured = new Insured(18, name, document);
 
-            var vehicle = new Vehicle("Fiat", "147", "1000");
+            var vehicle = new Vehicle("Fiat", "147", 1000);
             var insurance = new Insurance(insured, vehicle);
 
 
@@ -35,7 +35,7 @@ namespace Reply.Tests.Entities
             var document = new Document("222.555.650-00");
             var insured = new Insured(15, name, document);
 
-            var vehicle = new Vehicle("F", "147", "1000");
+            var vehicle = new Vehicle("F", "147", 1000);
             var insurance = new Insurance(insured, vehicle);
 
 

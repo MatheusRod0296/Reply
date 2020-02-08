@@ -13,10 +13,7 @@ namespace Reply.Tests.Entities.Calculator
         [TestMethod]
         public void ShouldReturnTheCorrectValueOfCalculator()
         {
-
             var result = new RiskRate();
-
-
             Assert.AreEqual(2.5M, result.Value);
         }
     }
