@@ -1,9 +1,6 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Reply.Domain.ReplyContext.Entities;
 using Reply.Domain.ReplyContext.ValueObjects;
-using System;
-using System.Collections.Generic;
-using System.Text;
 
 namespace Reply.Tests.Entities
 {
@@ -12,34 +9,36 @@ namespace Reply.Tests.Entities
     {
 
         [TestMethod]
-        public void ShouldReturnTrueWhenIsValid()
+        [DataRow("Matheus", "Rodrigues", "944.555.650-00",18, "Fiat", "147",  "1000.00" )]
+        public void ShouldReturnTrueWhenIsValid(string firstName, string lastName, string cpf, int age, string brand, string model, string value)
         {
+            decimal.TryParse(value, out decimal _value);
+            var name = new Name(firstName, lastName);
+            var document = new Document(cpf);
+            var insured = new Insured(age, name, document);
 
-            var name = new Name("Matheus", "Rodrigues");
-            var document = new Document("944.555.650-00");
-            var insured = new Insured(18, name, document);
-
-            var vehicle = new Vehicle("Fiat", "147", "1000");
+            var vehicle = new Vehicle(brand, model, _value);
             var insurance = new Insurance(insured, vehicle);
 
 
-            Assert.AreEqual(0, insurance.Notifications.Count);
+            Assert.IsTrue(insurance.Valid);
         }
 
 
         [TestMethod]
-        public void ShouldReturnfalseWhenNotIsValid()
+        [DataRow("M", "atheus", "222.555.650-00", 15, "F", "147", "1000")]
+        public void ShouldReturnTrueWhenNotIsValid(string firstName, string lastName, string cpf, int age, string brand, string model, string value)
         {
-
-            var name = new Name("M", "atheus");
-            var document = new Document("222.555.650-00");
+            decimal.TryParse(value, out decimal _value);
+            var name = new Name(firstName, lastName);
+            var document = new Document(cpf);
             var insured = new Insured(15, name, document);
 
-            var vehicle = new Vehicle("F", "147", "1000");
+            var vehicle = new Vehicle(brand, model, _value);
             var insurance = new Insurance(insured, vehicle);
 
 
-            Assert.IsTrue( insurance.Notifications.Count > 0);
+            Assert.IsTrue(insurance.Invalid );
         }
     }
 }

@@ -9,7 +9,7 @@ namespace Reply.Domain.ReplyContext.Entities
     /// </summary>
     public class Insurance : Entity
     {
-        const decimal margemSegurity = 0.03M;
+        const decimal _safetyMargin = 0.03M;
         const decimal profit = 0.05M;
 
         public Insurance(Insured insured, Vehicle vehicle)
@@ -27,7 +27,7 @@ namespace Reply.Domain.ReplyContext.Entities
 
         public ICalculator RiskRate { get => new RiskRate(); }
         public ICalculator RiskPrize { get => new RiskPrize(RiskRate.Value, Vehicle.Value); }
-        public ICalculator PurePrize { get => new PurePrize(RiskPrize.Value, margemSegurity); }
+        public ICalculator PurePrize { get => new PurePrize(RiskPrize.Value, _safetyMargin); }
         public ICalculator CommercialPrize { get => new CommercialPrize(PurePrize.Value, profit); }
 
   

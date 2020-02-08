@@ -4,6 +4,9 @@ using System.Text;
 
 namespace Reply.Shared.Commands
 {
+    /// <summary>
+    /// interface Agroup commands
+    /// </summary>
     public interface ICommand
     {
        

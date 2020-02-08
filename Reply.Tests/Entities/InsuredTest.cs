@@ -1,9 +1,6 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Reply.Domain.ReplyContext.Entities;
 using Reply.Domain.ReplyContext.ValueObjects;
-using System;
-using System.Collections.Generic;
-using System.Text;
 
 namespace Reply.Tests.Entities
 {
@@ -14,34 +11,29 @@ namespace Reply.Tests.Entities
         private Document _document = new Document("944.555.650-00");
 
         [TestMethod]
-        public void ShouldReturnNotificationWhenAgeIsUnderthan18()
+        [DataRow(17)]
+        [DataRow(121)]
+        public void ShouldReturnTrueWhenNotIsValid(int Age)
         {
-            
-            var insured = new Insured(17, _name, _document);
 
-            Assert.AreEqual(true, insured.Invalid);
-            Assert.AreEqual(1, insured.Notifications.Count);
+            var insured = new Insured(Age, _name, _document);
+
+            Assert.IsTrue(insured.Invalid);
         }
 
 
         [TestMethod]
-        public void ShouldReturnNotificationWhenAgeIsOverthan120()
+        [DataRow(120)]
+        [DataRow(18)]
+        public void ShouldReturnTrueWhenIsValid(int age)
         {
 
-            var insured = new Insured(121, _name, _document);
+            var insured = new Insured(age, _name, _document);
 
-            Assert.AreEqual(true, insured.Invalid);
-            Assert.AreEqual(1, insured.Notifications.Count);
+            Assert.IsTrue(insured.Valid);
+
         }
 
-        [TestMethod]
-        public void ShouldReturnNotificationWhenIsValid()
-        {        
 
-            var insured = new Insured(18, _name, _document);
-
-            Assert.AreEqual(true, insured.Valid);
-            Assert.AreEqual(0, insured.Notifications.Count);
-        }
     }
 }

@@ -5,6 +5,10 @@ using System.Text;
 
 namespace Reply.Shared.Entities
 {
+    /// <summary>
+    /// Adbstract class difine rules
+    /// for classes entities 
+    /// </summary>
     public abstract class Entity: Notifiable
     {
         public Entity()

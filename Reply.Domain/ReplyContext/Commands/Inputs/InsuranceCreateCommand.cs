@@ -1,7 +1,4 @@
 ﻿using Reply.Shared.Commands;
-using System;
-using System.Collections.Generic;
-using System.Text;
 
 namespace Reply.Domain.ReplyContext.Commands.Inputs
 {
@@ -10,8 +7,6 @@ namespace Reply.Domain.ReplyContext.Commands.Inputs
     /// </summary>
     public struct InsuranceCreateCommand : ICommand
     {
-     
-
         public string VehicleBrand { get; set; }
         public string VehicleModel { get; set; }
         public string VehicleValue { get; set; }

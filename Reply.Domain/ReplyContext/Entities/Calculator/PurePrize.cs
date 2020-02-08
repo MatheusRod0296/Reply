@@ -7,23 +7,23 @@
     public class PurePrize : ICalculator
     {
         private decimal _riskPrize;
-        private decimal _margemSegurity;
+        private decimal _safetyMargin;
         /// <summary>
         /// 
         /// </summary>
-        /// <param name="riskPrize">Valor correnpondente ao premio de risco</param>
-        /// <param name="margemSegurity">valor correspondente a margemde segurança</param>
-        public PurePrize(decimal riskPrize, decimal margemSegurity)
+        /// <param name="riskPrize">Value matching Risk Prize</param>
+        /// <param name="SafetyMargin">value matching  safety margin</param>
+        public PurePrize(decimal riskPrize, decimal safetyMargin)
         {
             _riskPrize = riskPrize;
-            _margemSegurity = margemSegurity;
+            _safetyMargin = safetyMargin;
         }
 
         public decimal Value => Calculate();
 
         public decimal Calculate()
         {
-            return _riskPrize * (1 + _margemSegurity);
+            return _riskPrize * (1 + _safetyMargin);
         }
     }
 }

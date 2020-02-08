@@ -1,7 +1,4 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
-using System;
-using System.Collections.Generic;
-using System.Text;
 using Reply.Domain.ReplyContext.ValueObjects;
 
 
@@ -11,24 +8,30 @@ namespace Reply.Tests.ValueObjects
     public class NameTest
     {
         [TestMethod]
-        public  void ShouldReturnFourNotificationWhenNameIsNotValid()
+        [DataRow("", "123456789012345678901234567890123456789012345678901")]
+        [DataRow("123456789012345678901234567890123456789012345678901", "")]
+        [DataRow("", "")]
+        [DataRow("123456789012345678901234567890123456789012345678901", "123456789012345678901234567890123456789012345678901")]
+        [DataRow("Ronaldo", "")]
+        [DataRow("", "Fenomeno")]
+        public  void ShouldReturnTrueWhenNameIsNotValid(string firstName, string lastName)
         {
-            var name = new Name("", "123456789012345678901234567890123456789012345678901");
-            var name1 = new Name("123456789012345678901234567890123456789012345678901", "");
+            var name = new Name(firstName, lastName);          
 
-            name.AddNotifications(name1);
-            
-            Assert.AreEqual(true, name.Invalid);
-            Assert.AreEqual(4, name.Notifications.Count);
+            name.AddNotifications(name);
+
+            Assert.IsTrue(name.Invalid);
         }
 
         [TestMethod]
-        public void ShouldReturnnWithoutNotificationWhenNameIsValid()
+        [DataRow("Matheus", "Rodrigues")]
+        [DataRow("Ana", "Del")]
+        public void ShouldReturnTrueWhenNameIsValid(string firstName, string lastName)
         {
-            var name = new Name("Matheus", "Rodrigues");
+            var name = new Name(firstName, lastName);
 
-            Assert.AreEqual(true, name.Valid);
-            Assert.AreEqual(0, name.Notifications.Count);
+            Assert.IsTrue(name.Valid);
+            
         }
     }
 }

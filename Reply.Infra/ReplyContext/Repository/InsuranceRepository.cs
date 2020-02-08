@@ -10,6 +10,10 @@ using System.Text;
 
 namespace Reply.Infra.ReplyContext.Repository
 {
+    /// <summary>
+    /// Access classe of dataBase
+    /// Follow rules IInsuranceRepository interface
+    /// </summary>
     public class InsuranceRepository : IInsuranceRepository
     {
         private readonly ReplyDataContext _context;
@@ -20,7 +24,7 @@ namespace Reply.Infra.ReplyContext.Repository
         }
 
        
-
+      
         public IEnumerable<SearchInsuranceQueryResult> GetInsuranceByDocument(string document)
         {
             var command = $@"select  [Id] 
@@ -94,7 +98,7 @@ namespace Reply.Infra.ReplyContext.Repository
         }
 
 
-        public ReportQueryResult GetToRelatorio()
+        public ReportQueryResult GetReport()
         {
             var command = $@"select 
                                 Sum(VehicleValue) / count(VehicleValue) as VehicleValue,

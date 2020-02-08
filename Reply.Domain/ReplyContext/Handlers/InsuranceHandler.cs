@@ -6,9 +6,6 @@ using Reply.Domain.ReplyContext.Entities;
 using Reply.Domain.ReplyContext.Repository;
 using Reply.Domain.ReplyContext.ValueObjects;
 using Reply.Shared.Commands;
-using System;
-using System.Collections.Generic;
-using System.Text;
 
 namespace Reply.Domain.ReplyContext.Handlers
 {
@@ -38,7 +35,11 @@ namespace Reply.Domain.ReplyContext.Handlers
 
             var insured = new Insured(command.InsuredAge, name, document);
 
-            var vehicle = new Vehicle(command.VehicleBrand, command.VehicleModel, command.VehicleValue);
+            decimal vehicleValue = 0;
+
+            decimal.TryParse(command.VehicleValue, out vehicleValue);
+
+            var vehicle = new Vehicle(command.VehicleBrand, command.VehicleModel, vehicleValue);
 
             var insurance = new Insurance(insured, vehicle);
 

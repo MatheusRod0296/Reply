@@ -11,8 +11,8 @@
         /// <summary>
         /// 
         /// </summary>
-        /// <param name="riskrate">valor da taxa de risco</param>
-        /// <param name="veichleValue">valor do veiculo</param>
+        /// <param name="riskrate">Value of Risk Rate</param>
+        /// <param name="veichleValue">Value of Vehicle</param>
         public RiskPrize(decimal riskrate, decimal veichleValue)
         {
             _riskrate = riskrate;

@@ -10,11 +10,25 @@ namespace Reply.Domain.ReplyContext.Repository
     /// Contract of Repository  for Insurance Entity
     /// </summary>
     public interface IInsuranceRepository
-    {        
+    {   
+        /// <summary>
+        /// Method responsible for save a insurance
+        /// </summary>
+        /// <param name="model"></param>
+        /// <returns></returns>
         bool Save(Insurance model);
 
+        /// <summary>
+        /// Method responsible for returb a list of insurance
+        /// </summary>
+        /// <param name="document"></param>
+        /// <returns></returns>
         IEnumerable<SearchInsuranceQueryResult> GetInsuranceByDocument(string document);
 
-        ReportQueryResult GetToRelatorio();
+        /// <summary>
+        /// Method resposible for return Report average data
+        /// </summary>
+        /// <returns></returns>
+        ReportQueryResult GetReport();
     }
 }

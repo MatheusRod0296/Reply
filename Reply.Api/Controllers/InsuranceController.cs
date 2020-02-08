@@ -25,7 +25,7 @@ namespace Reply.Api.Controllers
         /// Controller responsible to receive insurance data 
         /// and send to your Handler     
         /// </summary>
-        /// <param name="command">Objeto contem todos os dados necessarios para simular o seguro</param>
+        /// <param name="command">input data with all values necessary</param>
         /// <returns></returns>
         [HttpPost]
         [Route("v1/Insurance")]
@@ -61,11 +61,11 @@ namespace Reply.Api.Controllers
         /// </summary>
         /// <returns></returns>
         [HttpGet]
-        [Route("v1/Insurance/Relatorio")]
-        public IActionResult Relatorio()
+        [Route("v1/Insurance/Report")]
+        public IActionResult Report()
         {          
                       
-            var result = _iInsuranceRepository.GetToRelatorio();
+            var result = _iInsuranceRepository.GetReport();
 
             return Ok(result);
         }

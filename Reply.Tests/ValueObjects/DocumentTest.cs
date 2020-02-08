@@ -1,8 +1,5 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Reply.Domain.ReplyContext.ValueObjects;
-using System;
-using System.Collections.Generic;
-using System.Text;
 
 namespace Reply.Tests.ValueObjects
 {
@@ -10,22 +7,24 @@ namespace Reply.Tests.ValueObjects
     public class DocumentTest
     {
         [TestMethod]
-        public void ShouldReturnNotificationWhenDocumentIsNotValid()
+        [DataRow("944.545.650-00")]
+        [DataRow("000.000.000-11")]
+        public void ShouldReturnTrueWhenDocumentIsNotValid(string cpf)
         {
-            var document = new Document("12345678911");            
+            var document = new Document(cpf);
 
-            Assert.AreEqual(true, document.Invalid);
-            Assert.IsTrue( document.Notifications.Count > 0);
+            Assert.IsTrue(document.Invalid);
         }
 
 
         [TestMethod]
-        public void ShouldReturnNotificationWhenDocumentIsValid()
+        [DataRow("944.555.650-00")]
+        [DataRow("000.000.001-91")]
+        public void ShouldRetunTrueWhenDocumentIsValid(string cpf)
         {
-            var document = new Document("944.555.650-00");
+            var document = new Document(cpf);
 
-            Assert.AreEqual(true, document.Valid);
-            Assert.AreEqual( 0, document.Notifications.Count);
+            Assert.IsTrue(document.Valid);
         }
     }
 }
